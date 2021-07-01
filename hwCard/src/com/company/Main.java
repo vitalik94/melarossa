@@ -13,8 +13,17 @@ public class Main {
 
         acard.BalanceOnCard(c);
 
-        acard.cashWithdrawal(c, BigDecimal.valueOf(100));
-        System.out.println(c.getBalance());
+        try {
+
+            acard.cashWithdrawal(c, BigDecimal.valueOf(100));
+            System.out.println(c.getBalance());
+
+        }catch(CashСreditingException e){
+
+            System.out.println("на балансе " + c.getBalance());
+            e.printStackTrace();
+
+        }
 
         acard.cashСrediting(c, BigDecimal.valueOf(200));
         System.out.println(c.getBalance());
