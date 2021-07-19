@@ -12,7 +12,7 @@ public class Main {
         ActionsWithTheCard acard = new ActionsWithTheCard();
 
         acard.BalanceOnCard(c);
-
+      
         try {
 
             acard.cashWithdrawal(c, BigDecimal.valueOf(100));
@@ -29,7 +29,6 @@ public class Main {
         System.out.println(c.getBalance());
 
         System.out.println(acard.transfer(c, cu));
-
 
     }
 

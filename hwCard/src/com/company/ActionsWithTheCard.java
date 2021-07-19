@@ -43,7 +43,7 @@ public class ActionsWithTheCard {
         double transferBalance = 0;
         double balance = c.getBalance().doubleValue();
 
-                transferBalance = balance / cu.getExchangeRate();
+        transferBalance = balance / cu.getExchangeRate();
 
         return transferBalance;
 
