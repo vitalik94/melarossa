@@ -12,15 +12,23 @@ public class Main {
         ActionsWithTheCard acard = new ActionsWithTheCard();
 
         acard.BalanceOnCard(c);
+      
+        try {
 
-        acard.cashWithdrawal(c, BigDecimal.valueOf(100));
-        System.out.println(c.getBalance());
+            acard.cashWithdrawal(c, BigDecimal.valueOf(100));
+            System.out.println(c.getBalance());
+
+        }catch(CashСreditingException e){
+
+            System.out.println("на балансе " + c.getBalance());
+            e.printStackTrace();
+
+        }
 
         acard.cashСrediting(c, BigDecimal.valueOf(200));
         System.out.println(c.getBalance());
 
         System.out.println(acard.transfer(c, cu));
-
 
     }
 

@@ -10,13 +10,21 @@ public class ActionsWithTheCard {
 
     }
 
-    public void cashWithdrawal(Card c, BigDecimal cash) {
+    public void cashWithdrawal(Card c, BigDecimal cash) throws CashСreditingException {
 
         BigDecimal currentBalance;
 
-        currentBalance = c.getBalance().subtract(cash);
+        if (cash.compareTo(c.getBalance()) == -1 | cash.compareTo(c.getBalance()) == 0) {
 
-        c.setBalance(currentBalance);
+            currentBalance = c.getBalance().subtract(cash);
+
+            c.setBalance(currentBalance);
+
+        } else {
+
+            throw new CashСreditingException(c.getBalance());
+
+        }
 
     }
 
@@ -35,16 +43,7 @@ public class ActionsWithTheCard {
         double transferBalance = 0;
         double balance = c.getBalance().doubleValue();
 
-        switch (cu.getNameCurrency()) {
-
-            case ("USD"):
-                transferBalance = balance / cu.getExchangeRate();
-                break;
-            case ("EUR"):
-                transferBalance = balance / cu.getExchangeRate();
-                break;
-
-        }
+        transferBalance = balance / cu.getExchangeRate();
 
         return transferBalance;
 
